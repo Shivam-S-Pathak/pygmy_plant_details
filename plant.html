@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pygmy Date Palm | Plant Information</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: #f3f8f2;
+        color: #20352a;
+        line-height: 1.6;
+    }
+
+    /* ---------- HERO ---------- */
+
+    .hero {
+        min-height: 100vh;
+        position: relative;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        background:
+            linear-gradient(135deg, rgba(10,45,25,.85), rgba(35,95,58,.55)),
+            url("https://pikirangi.co.nz/cdn/shop/files/Palmierphoenixroebeleniisanspot-x700.jpg?v=1695717823&width=1445")
+            center/cover;
+    }
+
+    .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            to bottom,
+            transparent 60%,
+            #f3f8f2 100%
+        );
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 1100px;
+        margin: auto;
+        padding: 40px 25px;
+        color: white;
+    }
+
+    .tag {
+        display: inline-block;
+        padding: 8px 18px;
+        border: 1px solid rgba(255,255,255,.5);
+        border-radius: 30px;
+        backdrop-filter: blur(8px);
+        background: rgba(255,255,255,.12);
+        font-size: 14px;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+    }
+
+    .hero h1 {
+        font-size: clamp(48px, 8vw, 90px);
+        line-height: .95;
+        margin-bottom: 20px;
+    }
+
+    .scientific-name {
+        font-size: 24px;
+        font-style: italic;
+        opacity: .9;
+        margin-bottom: 30px;
+    }
+
+    .hero-description {
+        max-width: 650px;
+        font-size: 18px;
+        opacity: .9;
+    }
+
+    .scroll-btn {
+        display: inline-block;
+        margin-top: 35px;
+        padding: 13px 25px;
+        border-radius: 30px;
+        background: white;
+        color: #1c6339;
+        text-decoration: none;
+        font-weight: 600;
+        transition: .3s;
+    }
+
+    .scroll-btn:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+
+    /* ---------- NAV ---------- */
+
+    nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(255,255,255,.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid #dbe7dc;
+    }
+
+    .nav-inner {
+        max-width: 1100px;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        padding: 12px;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: #31543e;
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-size: 14px;
+        transition: .3s;
+    }
+
+    nav a:hover {
+        background: #dcefe0;
+        color: #126334;
+    }
+
+    /* ---------- GENERAL ---------- */
+
+    section {
+        max-width: 1100px;
+        margin: auto;
+        padding: 80px 25px;
+    }
+
+    .section-title {
+        text-align: center;
+        margin-bottom: 45px;
+    }
+
+    .section-title span {
+        color: #4c9a68;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 700;
+    }
+
+    .section-title h2 {
+        font-size: 38px;
+        margin-top: 8px;
+        color: #183b27;
+    }
+
+    /* ---------- PLANT CARD ---------- */
+
+    .plant-card {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 35px;
+        background: white;
+        border-radius: 28px;
+        padding: 25px;
+        box-shadow: 0 15px 50px rgba(35,70,45,.08);
+        align-items: center;
+    }
+
+    .plant-image {
+        width: 100%;
+        height: 430px;
+        object-fit: cover;
+        border-radius: 22px;
+    }
+
+    .plant-info h3 {
+        font-size: 30px;
+        color: #23643c;
+        margin-bottom: 10px;
+    }
+
+    .latin {
+        font-style: italic;
+        color: #71927b;
+        margin-bottom: 20px;
+    }
+
+    .fact {
+        padding: 15px;
+        background: #f0f7f1;
+        border-left: 4px solid #4d9b68;
+        margin: 10px 0;
+        border-radius: 8px;
+    }
+
+    /* ---------- INTERACTIVE TABS ---------- */
+
+    .tabs {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 25px;
+    }
+
+    .tab-btn {
+        border: none;
+        background: #e0eee2;
+        color: #285a39;
+        padding: 12px 22px;
+        border-radius: 30px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: .3s;
+    }
+
+    .tab-btn.active,
+    .tab-btn:hover {
+        background: #2f7d4b;
+        color: white;
+        transform: translateY(-2px);
+    }
+
+    .tab-content {
+        display: none;
+        background: white;
+        padding: 35px;
+        border-radius: 22px;
+        box-shadow: 0 10px 35px rgba(40,80,50,.08);
+        animation: fade .4s ease;
+    }
+
+    .tab-content.active {
+        display: block;
+    }
+
+    @keyframes fade {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* ---------- INFO CARDS ---------- */
+
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 20px;
+    }
+
+    .card {
+        background: white;
+        padding: 28px;
+        border-radius: 22px;
+        box-shadow: 0 10px 35px rgba(40,80,50,.07);
+        transition: .35s;
+        cursor: pointer;
+    }
+
+    .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(40,80,50,.13);
+    }
+
+    .card-icon {
+        font-size: 36px;
+        margin-bottom: 15px;
+    }
+
+    .card h3 {
+        margin-bottom: 10px;
+        color: #24613b;
+    }
+
+    .card p {
+        color: #627468;
+    }
+
+    /* ---------- ACCORDION ---------- */
+
+    .accordion {
+        background: white;
+        border-radius: 18px;
+        margin-bottom: 12px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(40,80,50,.06);
+    }
+
+    .accordion-header {
+        padding: 20px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 700;
+        color: #285c3a;
+    }
+
+    .accordion-body {
+        max-height: 0;
+        overflow: hidden;
+        transition: .4s;
+        padding: 0 20px;
+        color: #647268;
+    }
+
+    .accordion.open .accordion-body {
+        max-height: 300px;
+        padding-bottom: 20px;
+    }
+
+    .plus {
+        font-size: 25px;
+        transition: .3s;
+    }
+
+    .accordion.open .plus {
+        transform: rotate(45deg);
+    }
+
+    /* ---------- MEDICINAL ---------- */
+
+    .medicine {
+        background: linear-gradient(135deg,#1c5d35,#3b8b55);
+        color: white;
+        border-radius: 28px;
+        padding: 50px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .medicine::before {
+        content: "🌿";
+        position: absolute;
+        right: 50px;
+        top: 20px;
+        font-size: 120px;
+        opacity: .08;
+    }
+
+    .medicine h2 {
+        font-size: 35px;
+        margin-bottom: 15px;
+    }
+
+    .warning {
+        margin-top: 25px;
+        padding: 15px;
+        background: rgba(255,255,255,.12);
+        border-radius: 12px;
+        border-left: 4px solid #c9f3d3;
+    }
+
+    /* ---------- QUIZ ---------- */
+
+    .quiz {
+        background: white;
+        border-radius: 25px;
+        padding: 35px;
+        box-shadow: 0 10px 35px rgba(40,80,50,.08);
+    }
+
+    .quiz button {
+        display: block;
+        width: 100%;
+        text-align: left;
+        margin: 10px 0;
+        padding: 14px 18px;
+        border: 1px solid #d5e5d8;
+        border-radius: 12px;
+        background: #f7faf7;
+        cursor: pointer;
+        transition: .3s;
+    }
+
+    .quiz button:hover {
+        background: #e1f1e4;
+    }
+
+    #quiz-result {
+        margin-top: 20px;
+        font-weight: 700;
+        color: #28703f;
+    }
+
+    /* ---------- FOOTER ---------- */
+
+    footer {
+        background: #183b27;
+        color: white;
+        text-align: center;
+        padding: 35px 20px;
+    }
+
+    footer p {
+        opacity: .75;
+        font-size: 14px;
+        margin-top: 8px;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+
+    @media(max-width:800px) {
+
+        .plant-card {
+            grid-template-columns: 1fr;
+        }
+
+        .cards {
+            grid-template-columns: 1fr;
+        }
+
+        .plant-image {
+            height: 300px;
+        }
+
+        section {
+            padding: 60px 18px;
+        }
+
+        .medicine {
+            padding: 30px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+
+<header class="hero">
+
+    <div class="hero-content">
+
+        <div class="tag">
+            🌿 PLANT INFORMATION
+        </div>
+
+        <h1>Pygmy<br>Date Palm</h1>
+
+        <div class="scientific-name">
+            Phoenix roebelenii O'Brien
+        </div>
+
+        <p class="hero-description">
+            Explore the botanical identity, characteristics,
+            effects and medicinal information of this beautiful
+            ornamental palm.
+        </p>
+
+        <a href="#plant" class="scroll-btn">
+            Explore Plant ↓
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- NAVIGATION -->
+
+<nav>
+
+    <div class="nav-inner">
+
+        <a href="#plant">Plant</a>
+        <a href="#information">Information</a>
+        <a href="#effects">Effects</a>
+        <a href="#medicine">Medicinal Use</a>
+        <a href="#quiz">Quiz</a>
+
+    </div>
+
+</nav>
+
+
+<!-- PLANT -->
+
+<section id="plant">
+
+    <div class="section-title">
+
+        <span>01 · Plant Profile</span>
+
+        <h2>Meet the Pygmy Date Palm</h2>
+
+    </div>
+
+
+    <div class="plant-card">
+
+        <img
+            class="plant-image"
+            src="https://pikirangi.co.nz/cdn/shop/files/Palmierphoenixroebeleniisanspot-x700.jpg?v=1695717823&width=1445"
+            alt="Pygmy Date Palm"
+        >
+
+        <div class="plant-info">
+
+            <h3>Pygmy Date Palm</h3>
+
+            <p class="latin">
+                Phoenix roebelenii O'Brien
+            </p>
+
+            <div class="fact">
+                <strong>Family:</strong> Arecaceae
+            </div>
+
+            <div class="fact">
+                <strong>Common use:</strong>
+                Ornamental and landscaping plant
+            </div>
+
+            <div class="fact">
+                <strong>Appearance:</strong>
+                Small, graceful palm with a slender trunk
+                and arching feather-like leaves.
+            </div>
+
+            <div class="fact">
+                <strong>Special feature:</strong>
+                Its compact size makes it popular for
+                gardens, containers and indoor spaces.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- INTERACTIVE INFORMATION -->
+
+<section id="information">
+
+    <div class="section-title">
+
+        <span>02 · Explore</span>
+
+        <h2>Plant Information</h2>
+
+    </div>
+
+
+    <div class="tabs">
+
+        <button class="tab-btn active"
+                onclick="openTab('botanical',this)">
+            🌱 Botanical
+        </button>
+
+        <button class="tab-btn"
+                onclick="openTab('appearance',this)">
+            🌴 Appearance
+        </button>
+
+        <button class="tab-btn"
+                onclick="openTab('uses',this)">
+            🏡 Uses
+        </button>
+
+    </div>
+
+
+    <div id="botanical" class="tab-content active">
+
+        <h3>Botanical Identity</h3>
+
+        <br>
+
+        <p>
+            <strong>Botanical Name:</strong>
+            <em>Phoenix roebelenii</em> O'Brien
+        </p>
+
+        <p>
+            <strong>Family:</strong>
+            Arecaceae
+        </p>
+
+        <p>
+            The plant belongs to the date palm group
+            and is widely valued as an ornamental palm.
+        </p>
+
+    </div>
+
+
+    <div id="appearance" class="tab-content">
+
+        <h3>Appearance & Characteristics</h3>
+
+        <br>
+
+        <p>
+            The Pygmy Date Palm is a relatively small palm
+            with a slender trunk and soft, arching,
+            feather-like leaves.
+        </p>
+
+        <br>
+
+        <p>
+            Its compact appearance makes it suitable for
+            landscaping and container cultivation.
+        </p>
+
+    </div>
+
+
+    <div id="uses" class="tab-content">
+
+        <h3>Common Uses</h3>
+
+        <br>
+
+        <p>
+            🌿 Garden decoration
+        </p>
+
+        <p>
+            🪴 Container planting
+        </p>
+
+        <p>
+            🏠 Indoor and outdoor landscaping
+        </p>
+
+        <p>
+            🌴 Tropical-style landscape design
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- EFFECTS -->
+
+<section id="effects">
+
+    <div class="section-title">
+
+        <span>03 · Cause & Effect</span>
+
+        <h2>Effects of the Plant</h2>
+
+    </div>
+
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div class="card-icon">🌿</div>
+
+            <h3>Positive Effect</h3>
+
+            <p>
+                The plant adds greenery and an attractive
+                tropical appearance to gardens and indoor
+                spaces.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">🏡</div>
+
+            <h3>Environmental Value</h3>
+
+            <p>
+                As a living ornamental plant, it contributes
+                to green spaces and improves the visual
+                quality of landscapes.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">⚠️</div>
+
+            <h3>Possible Risk</h3>
+
+            <p>
+                The basal leaflets can form sharp structures,
+                so care should be taken while handling or
+                pruning the plant.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- INTERACTIVE ACCORDION -->
+
+<section>
+
+    <div class="section-title">
+
+        <span>04 · Learn More</span>
+
+        <h2>Plant Care & Problems</h2>
+
+    </div>
+
+
+    <div class="accordion">
+
+        <div class="accordion-header"
+             onclick="toggleAccordion(this)">
+
+            💧 Overwatering
+
+            <span class="plus">+</span>
+
+        </div>
+
+        <div class="accordion-body">
+
+            Excessive moisture can contribute to root
+            problems. Good drainage is important for
+            maintaining a healthy plant.
+
+        </div>
+
+    </div>
+
+
+    <div class="accordion">
+
+        <div class="accordion-header"
+             onclick="toggleAccordion(this)">
+
+            🐛 Pests
+
+            <span class="plus">+</span>
+
+        </div>
+
+        <div class="accordion-body">
+
+            Like other palms, the plant may experience
+            problems with pests such as scale insects.
+            Regular observation can help identify problems
+            early.
+
+        </div>
+
+    </div>
+
+
+    <div class="accordion">
+
+        <div class="accordion-header"
+             onclick="toggleAccordion(this)">
+
+            ❄️ Cold / Frost
+
+            <span class="plus">+</span>
+
+        </div>
+
+        <div class="accordion-body">
+
+            Cold and frost can damage the foliage.
+            Protection may be necessary in colder climates.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MEDICINAL USE -->
+
+<section id="medicine">
+
+    <div class="medicine">
+
+        <h2>🌿 Medicinal Use</h2>
+
+        <p>
+            The Pygmy Date Palm is primarily known as an
+            ornamental and landscaping plant. There is
+            no well-established medicinal use supported
+            by the horticultural sources used for this
+            project.
+        </p>
+
+        <div class="warning">
+
+            ⚠️ <strong>Important:</strong>
+
+            The plant should not be presented as a
+            medicinal treatment without reliable scientific
+            evidence. Always consult a qualified healthcare
+            professional before using any plant medicinally.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- QUIZ -->
+
+<section id="quiz">
+
+    <div class="section-title">
+
+        <span>05 · Test Yourself</span>
+
+        <h2>Quick Plant Quiz 🌱</h2>
+
+    </div>
+
+
+    <div class="quiz">
+
+        <h3>
+            What is the botanical name of the Pygmy Date Palm?
+        </h3>
+
+
+        <button onclick="checkAnswer(this,false)">
+            A. Phoenix dactylifera
+        </button>
+
+        <button onclick="checkAnswer(this,true)">
+            B. Phoenix roebelenii
+        </button>
+
+        <button onclick="checkAnswer(this,false)">
+            C. Areca catechu
+        </button>
+
+        <button onclick="checkAnswer(this,false)">
+            D. Cocos nucifera
+        </button>
+
+
+        <div id="quiz-result"></div>
+
+    </div>
+
+</section>
+
+
+<!-- SOURCES -->
+
+<section>
+
+    <div class="section-title">
+
+        <span>06 · References</span>
+
+        <h2>Sources</h2>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div class="card-icon">📚</div>
+
+            <h3>UF / IFAS Extension</h3>
+
+            <p>
+                Information on Phoenix roebelenii,
+                including identification and horticultural
+                characteristics.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">🌿</div>
+
+            <h3>RHS</h3>
+
+            <p>
+                Horticultural information and plant
+                characteristics.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">🔎</div>
+
+            <h3>India Flora Online</h3>
+
+            <p>
+                Botanical information and plant
+                classification.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <h3>🌴 Pygmy Date Palm</h3>
+
+    <p>
+        A small palm with a graceful presence.
+    </p>
+
+    <p>
+        Educational Plant Information Project
+    </p>
+
+</footer>
+
+
+<script>
+
+/* ---------- TABS ---------- */
+
+function openTab(tabName, button) {
+
+    let contents =
+        document.querySelectorAll(".tab-content");
+
+    let buttons =
+        document.querySelectorAll(".tab-btn");
+
+    contents.forEach(content => {
+        content.classList.remove("active");
+    });
+
+    buttons.forEach(btn => {
+        btn.classList.remove("active");
+    });
+
+    document
+        .getElementById(tabName)
+        .classList.add("active");
+
+    button.classList.add("active");
+}
+
+
+/* ---------- ACCORDION ---------- */
+
+function toggleAccordion(header) {
+
+    let accordion =
+        header.parentElement;
+
+    accordion.classList.toggle("open");
+
+}
+
+
+/* ---------- QUIZ ---------- */
+
+function checkAnswer(button, correct) {
+
+    let result =
+        document.getElementById("quiz-result");
+
+    if(correct) {
+
+        result.innerHTML =
+            "🎉 Correct! Phoenix roebelenii is the botanical name of the Pygmy Date Palm.";
+
+        result.style.color = "#28703f";
+
+    } else {
+
+        result.innerHTML =
+            "❌ Not quite. Try again!";
+
+        result.style.color = "#b34b4b";
+
+    }
+
+}
+
+
+/* ---------- REVEAL ANIMATION ---------- */
+
+const observer =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if(entry.isIntersecting) {
+
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform =
+                        "translateY(0)";
+
+                }
+
+            });
+
+        },
+        {threshold: .12}
+    );
+
+
+document
+    .querySelectorAll(".card, .plant-card, .medicine, .quiz")
+    .forEach(element => {
+
+        element.style.opacity = "0";
+        element.style.transform = "translateY(25px)";
+        element.style.transition =
+            "opacity .7s ease, transform .7s ease";
+
+        observer.observe(element);
+
+    });
+
+</script>
+
+</body>
+</html>
